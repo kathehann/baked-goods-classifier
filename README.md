@@ -182,7 +182,7 @@ We improved our model in several ways:
 
 The plot below displays the average performance across the folds in terms of Accuracy, Precision, Recall, and F1-score as compared to our baseline model results.
 
-<iframe src="assets/baseline_vs_final_model.html" width="100%" height="500px"></iframe>
+<iframe src="assets/baseline_vs_final.html" width="100%" height="500px"></iframe>
 
 - **Accuracy** reflects the overall proportion of correctly classified observations.
 - **Precision** measures how many of the predicted baked goods were actually baked goods.
