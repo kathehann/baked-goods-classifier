@@ -10,6 +10,33 @@ In this project, we aim to answer the question:
 
 We analyze a dataset of recipes and user reviews from Food.com, applying exploratory data analysis, statistical inference, and predictive modeling techniques. The ultimate goal is to determine whether simple nutritional features can spot the difference bewteen a baked good and other types of recipes.
 
+### Dataset Overview
+
+Our project uses two datasets from Food.com:
+
+**`recipes`**: Contains 83,782 rows and includes metadata and nutritional information for each recipe.  
+Relevant columns include:
+
+| Column Name      | Description                                      |
+|------------------|--------------------------------------------------|
+| `name`           | Recipe name                                      |
+| `id`             | Unique recipe ID                                 |
+| `minutes`        | Minutes to prepare the recipe                    |
+| `submitted`      | Date the recipe was submitted                    |
+| `nutrition`      | Nutritional info as a list: [calories, fat, sugar, sodium, protein, saturated fat, carbs] |
+| `n_steps`        | Number of steps in the recipe                    |
+| `n_ingredients`  | Number of ingredients                            |
+| `description`    | User-provided recipe description                 |
+
+**`interactions`**: Contains 731,927 rows of user engagement data.  
+Relevant columns include:
+
+| Column Name   | Description                                           |
+|---------------|-------------------------------------------------------|
+| `recipe_id`   | Recipe ID (links to `id` in the `recipes` dataset)    |
+| `date`        | Date the rating or review was submitted               |
+| `rating`      | Rating given by a user                                |
+
 ---
 
 ## Data Cleaning and Exploratory Data Analysis
