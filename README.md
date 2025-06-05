@@ -50,8 +50,16 @@ We began by cleaning the raw `RAW_recipes.csv` and `RAW_interactions.csv` datase
 - Added a new column `is_baked_good` (based on tag keywords)
 
 Univariate Analysis:
+
+#### Sugar Content
+- There is a trong right skew indicating that high-sugar recipes are rare, with most recipes having sugar content less than 50g
+- There are a few outliers with extremely high-sugar levels, explaining the long tail
+
 <iframe src="assets/sugar_distribution.html" width="600" height="400" style="border:none;"></iframe>
 
+#### Calorie Content
+- Most recipes fall between 200 and 600 calories, suggesting that the majority of recipes in this dataset are moderate-calorie dishes.
+  
 <iframe src="assets/calories_distribution.html" width="600" height="400" style="border:none;"></iframe>
 
 
