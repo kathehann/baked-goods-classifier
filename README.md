@@ -180,9 +180,9 @@ We improved our model in several ways:
 - Average F1 Score: 70.4%
 - Average Accuracy: 82.4%
 
-The plot below displays the average performance across the folds in terms of Accuracy, Precision, Recall, and F1-score.
+The plot below displays the average performance across the folds in terms of Accuracy, Precision, Recall, and F1-score as compared to our baseline model results.
 
-<iframe src="assets/final_model_cv_metrics.html" width="100%" height="500px"></iframe>
+<iframe src="assets/baseline_vs_final_model.html" width="100%" height="500px"></iframe>
 
 - **Accuracy** reflects the overall proportion of correctly classified observations.
 - **Precision** measures how many of the predicted baked goods were actually baked goods.
