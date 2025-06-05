@@ -52,25 +52,25 @@ We began by cleaning the raw `RAW_recipes.csv` and `RAW_interactions.csv` datase
 ###Univariate Analysis
 
 #### Sugar Content
-- There is a trong right skew indicating that high-sugar recipes are rare, with most recipes having sugar content less than 50g
+- There is a strong right skew indicating that high-sugar recipes are rare, with **most recipes having sugar content less than 50g**
 - There are a few outliers with extremely high-sugar levels, explaining the long tail
 
 <iframe src="assets/sugar_distribution.html" width="600" height="400" style="border:none;"></iframe>
 
 #### Calorie Content
-- Most recipes fall between 200 and 600 calories, suggesting that the majority of recipes in this dataset are moderate-calorie dishes.
+- **Most recipes fall between 200 and 600 calories**, suggesting that the majority of recipes in this dataset are moderate-calorie dishes.
   
 <iframe src="assets/calories_distribution.html" width="600" height="400" style="border:none;"></iframe>
 
 ### Bivariate Analysis
 
-#### **sugar (g) vs is_baked_good**
+#### **`sugar (g)` vs `is_baked_good`**
 - Baked goods tend to have **higher sugar content on average** compared to non-baked goods, as expected.
 - However, the spread is tighter for baked goods, whereas non-baked goods show more variability and extreme outliers.
 
 <iframe src="assets/sugar_by_baked.html" width="600" height="400" style="border:none;"></iframe>
 
-#### **protein (g) is_baked_good**
+#### **`protein (g)` vs `is_baked_good`**
 - Baked goods generally have **lower protein content** than non-baked goods, with median protein levels visibly lower.
 - There is greater variability in protein among non-baked goods, likely due to the inclusion of protein-rich entrees.
 
@@ -78,7 +78,7 @@ We began by cleaning the raw `RAW_recipes.csv` and `RAW_interactions.csv` datase
 
 
 Exploratory plots showed that:
-- Baked goods generally have higher sugar and carbohydrate content
+- Baked goods generally have higher sugar content
 - Non-baked goods typically have higher protein content
 - The distribution of calories is right-skewed, with many high-calorie baked items
 
@@ -101,10 +101,12 @@ To statistically test whether baked goods contain more sugar than non-baked good
 
 **Null Hypothesis (H₀):**  
 The average sugar content of baked goods is less than or equal to that of non-baked goods.  
+
 **Alternative Hypothesis (H₁):**  
 The average sugar content of baked goods is greater than that of non-baked goods.
 
-- **Test statistic:** Difference in means ($\bar{x}_{\text{baked}} - \bar{x}_{\text{non-baked}}$)
+- **Test statistic:** Difference in means \( \bar{x}_{\text{baked}} - \bar{x}_{\text{non-baked}} \)
+
 - **Observed statistic:** 21.4139 grams
 - **p-value:** < 0.001
 
