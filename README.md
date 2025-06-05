@@ -49,7 +49,7 @@ We began by cleaning the raw `RAW_recipes.csv` and `RAW_interactions.csv` datase
 - Merged average user ratings from `RAW_interactions.csv` into the recipes dataset
 - Added a new column `is_baked_good` (based on tag keywords)
 
-Univariate Analysis:
+###Univariate Analysis
 
 #### Sugar Content
 - There is a trong right skew indicating that high-sugar recipes are rare, with most recipes having sugar content less than 50g
@@ -62,6 +62,19 @@ Univariate Analysis:
   
 <iframe src="assets/calories_distribution.html" width="600" height="400" style="border:none;"></iframe>
 
+### Bivariate Analysis
+
+#### **sugar (g) vs is_baked_good**
+- Baked goods tend to have **higher sugar content on average** compared to non-baked goods, as expected.
+- However, the spread is tighter for baked goods, whereas non-baked goods show more variability and extreme outliers.
+
+<iframe src="assets/sugar_by_baked.html" width="600" height="400" style="border:none;"></iframe>
+
+#### **protein (g) is_baked_good**
+- Baked goods generally have **lower protein content** than non-baked goods, with median protein levels visibly lower.
+- There is greater variability in protein among non-baked goods, likely due to the inclusion of protein-rich entrees.
+
+<iframe src="assets/protein_by_baked.html" width="600" height="400" style="border:none;"></iframe>
 
 
 Exploratory plots showed that:
