@@ -149,7 +149,7 @@ The confusion matrix below summarizes the performance of our baseline logistic r
 - **False Negatives (Bottom-left):** Missed baked goods (predicted as non-baked).  
 - **True Negatives (Bottom-right):** Correctly predicted non-baked goods.
 
-<iframe src="assets/baseline_confusion_matrix.html" width="100%" height="500px"></iframe>
+<iframe src="assets/baseline_confusion.html" width="100%" height="500px"></iframe>
 
 This model serves as a baseline for comparison with more complex models using additional features and engineered variables.
 
