@@ -140,6 +140,8 @@ The baseline model is a logistic regression using only two features: `sugar (g)`
 - F1-score (Baked): 33%  
 - Accuracy: 75%
 
+  <iframe src="assets/baseline_confusion_matrix.html" width="100%" height="500px"></iframe>
+
 **Note:** Precision, Recall, and F1-score reported here refer to the *baked good* class (i.e., `is_baked_good = True`).
 
 While it classifies non-baked goods well, it performs poorly on baked goods due to class imbalance and limited features.
