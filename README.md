@@ -49,6 +49,12 @@ We began by cleaning the raw `RAW_recipes.csv` and `RAW_interactions.csv` datase
 - Merged average user ratings from `RAW_interactions.csv` into the recipes dataset
 - Added a new column `is_baked_good` (based on tag keywords)
 
+Univariate Analysis:
+<iframe src="assets/sugar_distribution.html" width="600" height="400" style="border:none;"></iframe>
+<iframe src="assets/calories_distribution.html" width="600" height="400" style="border:none;"></iframe>
+
+
+
 Exploratory plots showed that:
 - Baked goods generally have higher sugar and carbohydrate content
 - Non-baked goods typically have higher protein content
