@@ -105,7 +105,9 @@ The average sugar content of baked goods is less than or equal to that of non-ba
 **Alternative Hypothesis (H₁):**  
 The average sugar content of baked goods is greater than that of non-baked goods.
 
-- **Test statistic:** Difference in means \( \bar{x}_{\text{baked}} - \bar{x}_{\text{non-baked}} \)
+- **Test statistic:** Difference in means
+
+  <iframe src="assets/permutation_test_visual.html" width="100%" height="500px"></iframe>
 
 - **Observed statistic:** 21.4139 grams
 - **p-value:** < 0.001
