@@ -107,7 +107,7 @@ The average sugar content of baked goods is greater than that of non-baked goods
 
 - **Test statistic:** Difference in means
 
-  <iframe src="assets/permutation_test_visual.html" width="100%" height="500px"></iframe>
+  <iframe src="assets/permutation_test_visual.html" width="100%" height="500px" style="border:none;"></iframe>
 
 - **Observed statistic:** 21.4139 grams
 - **p-value:** < 0.001
@@ -149,7 +149,7 @@ The confusion matrix below summarizes the performance of our baseline logistic r
 - **False Negatives (Bottom-left):** Missed baked goods (predicted as non-baked).  
 - **True Negatives (Bottom-right):** Correctly predicted non-baked goods.
 
-<iframe src="assets/baseline_confusion.html" width="100%" height="500px"></iframe>
+<iframe src="assets/baseline_confusion_matrix.html" width="100%" height="500px" style="border:none;"></iframe>
 
 This model serves as a baseline for comparison with more complex models using additional features and engineered variables.
 
@@ -182,15 +182,12 @@ We improved our model in several ways:
 
 The plot below displays the average performance across the folds in terms of Accuracy, Precision, Recall, and F1-score as compared to our baseline model results.
 
-<iframe src="assets/baseline_vs_final.html" width="100%" height="500px"></iframe>
+<iframe src="assets/baseline_vs_final.html" width="100%" height="500px" style="border:none;"></iframe>
 
 - **Accuracy** reflects the overall proportion of correctly classified observations.
 - **Precision** measures how many of the predicted baked goods were actually baked goods.
 - **Recall** indicates how many of the actual baked goods were correctly identified.
 - **F1-score** balances precision and recall, useful when classes are imbalanced.
-
-This visualization provides a more holistic view of our model’s generalization performance across multiple train-test splits.
-
 
 The final model greatly improved performance, especially recall and F1 score, indicating better handling of baked goods.
 
