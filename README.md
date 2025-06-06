@@ -231,7 +231,7 @@ We then calculated the **F1 score** for each group using the model’s predictio
 
 This result indicates that the model performs slightly better on older recipes (pre-2010), and the observed difference in F1 scores is statistically significant at the 0.01 level. This suggests that there may be temporal bias in the model's performance.
 
-<iframe src="assets/fairness_analysis.html" width="100%" height="500px"></iframe>
+<iframe src="assets/fairness_f1_permutation.html" width="100%" height="500px"></iframe>
 
 ### Interpretation
 
