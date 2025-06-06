@@ -60,7 +60,7 @@ We began by cleaning the raw `RAW_recipes.csv` and `RAW_interactions.csv` datase
 #### Calorie Content
 - **Most recipes fall between 200 and 600 calories**, suggesting that the majority of recipes in this dataset are moderate-calorie dishes.
   
-<iframe src="assets/calories_distribution1.html" width="600" height="400" style="border:none;"></iframe>
+<iframe src="assets/calories_distribution1.html" width="900px" height="600px" style="border:none;"></iframe>
 
 ### Bivariate Analysis
 
@@ -68,13 +68,13 @@ We began by cleaning the raw `RAW_recipes.csv` and `RAW_interactions.csv` datase
 - Baked goods tend to have **higher sugar content on average** compared to non-baked goods, as expected.
 - However, the spread is tighter for baked goods, whereas non-baked goods show more variability and extreme outliers.
 
-<iframe src="assets/sugar_by_baked1.html" width="600" height="400" style="border:none;"></iframe>
+<iframe src="assets/sugar_by_baked1.html" width="900px" height="600px" style="border:none;"></iframe>
 
 #### **`protein (g)` vs `is_baked_good`**
 - Baked goods generally have **lower protein content** than non-baked goods, with median protein levels visibly lower.
 - There is greater variability in protein among non-baked goods, likely due to the inclusion of protein-rich entrees.
 
-<iframe src="assets/protein_by_baked1.html" width="600" height="400" style="border:none;"></iframe>
+<iframe src="assets/protein_by_baked1.html" width="900px" height="600px" style="border:none;"></iframe>
 
 
 Exploratory plots showed that:
