@@ -213,8 +213,6 @@ To assess whether our final model performs equitably across different subgroups,
 
 We began by plotting the distribution of recipes by year. Most recipes in our dataset were submitted between 2008 and 2012, with a steep drop-off in later years.
 
-![Distribution of Recipes by Year](assets/year_distribution.png)
-
 ### Methodology
 
 We binarized the `year` column at the threshold of 2010 to define two groups:
