@@ -55,7 +55,7 @@ We began by cleaning the raw `RAW_recipes.csv` and `RAW_interactions.csv` datase
 - There is a strong right skew indicating that high-sugar recipes are rare, with **most recipes having sugar content less than 50g**
 - There are a few outliers with extremely high-sugar levels, explaining the long tail
 
-<iframe src="assets/sugar_distribution1.html" width="600" height="400" style="border:none;"></iframe>
+<iframe src="assets/sugar_distribution1.html" width="900px" height="600px" style="border:none;"></iframe>
 
 #### Calorie Content
 - **Most recipes fall between 200 and 600 calories**, suggesting that the majority of recipes in this dataset are moderate-calorie dishes.
