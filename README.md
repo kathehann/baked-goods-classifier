@@ -41,15 +41,27 @@ Relevant columns include:
 
 ## Data Cleaning and Exploratory Data Analysis
 
-We began by cleaning the raw `RAW_recipes.csv` and `RAW_interactions.csv` datasets:
+We began by cleaning and preparing the raw `RAW_recipes.csv` and `RAW_interactions.csv` datasets from Food.com to make them usable for analysis and modeling. The original datasets contained nested and stringified fields, as well as compact nutritional information that required transformation. Here are the major steps we performed:
 
-- Converted stringified lists in `tags`, `steps`, and `ingredients` to Python lists
-- Split the `nutrition` column into 7 individual nutrient features
-- Converted PDV values to gram/mg equivalents using USDA standards from 2016 onward
-- Merged average user ratings from `RAW_interactions.csv` into the recipes dataset
-- Added a new column `is_baked_good` (based on tag keywords)
+- **Parsing Stringified Lists**: The `tags`, `steps`, and `ingredients` columns in the recipes dataset were stored as stringified Python lists (e.g., `"['tag1', 'tag2']"`). We used `ast.literal_eval` to convert these strings into actual Python lists to enable filtering and counting operations.
 
-###Univariate Analysis
+- **Nutritional Feature Extraction**: The `nutrition` column held seven numeric values as a single list representing: `[calories, total fat, sugar, sodium, protein, saturated fat, carbohydrates]`. We split this list into separate columns, each with meaningful units (e.g., `sugar (g)`, `sodium (mg)`), and renamed them accordingly.
+
+- **Unit Standardization**: To ensure consistency across our dataset, we cross-referenced nutrient values against USDA standards and converted them into standardized units. For example, we represented sodium in milligrams and all other values in grams where appropriate.
+
+- **User Ratings Integration**: From `RAW_interactions.csv`, we calculated the average rating for each recipe using the `rating` values provided by users. We then merged these average ratings into the main recipe dataset using the shared `recipe_id`.
+
+- **Creating a Target Column (`is_baked_good`)**: We introduced a new binary column, `is_baked_good`, which flags whether a recipe is likely to be a baked good. This was determined by checking for the presence of specific baking-related keywords (e.g., 'bake', 'cookie', 'cake', 'bread') in the `tags` column.
+
+After cleaning, we performed exploratory data analysis (EDA) using univariate and bivariate visualizations. For instance:
+
+- We plotted the distribution of sugar, calories, and protein content across all recipes.
+- We compared nutrient distributions between baked and non-baked goods using box plots.
+- We created aggregate tables summarizing the average nutritional content for each group.
+
+These steps helped us better understand the structure and trends in the dataset, and informed the direction of our modeling efforts.
+
+### Univariate Analysis
 
 #### Sugar Content
 - There is a strong right skew indicating that high-sugar recipes are rare, with **most recipes having sugar content less than 50g**
@@ -194,4 +206,36 @@ The final model greatly improved performance, especially recall and F1 score, in
 ---
 
 ## Fairness Analysis
+
+To assess whether our final model performs equitably across different subgroups, we conducted a fairness analysis based on the year a recipe was submitted. Specifically, we explored whether the model's performance varies between recipes submitted before 2010 and those submitted in or after 2010.
+
+### Year Distribution
+
+We began by plotting the distribution of recipes by year. Most recipes in our dataset were submitted between 2008 and 2012, with a steep drop-off in later years.
+
+![Distribution of Recipes by Year](assets/year_distribution.png)
+
+### Methodology
+
+We binarized the `year` column at the threshold of 2010 to define two groups:
+
+- **Group 0**: Recipes submitted before 2010
+- **Group 1**: Recipes submitted in or after 2010
+
+We then calculated the **F1 score** for each group using the model’s predictions and conducted a **permutation test** to determine whether the observed difference in F1 scores is statistically significant.
+
+<iframe src="assets/recipes_by_year.html" width="100%" height="500px"></iframe>
+
+### Results
+
+- **Observed F1 score difference (group 1 − group 0)**: -0.0209  
+- **p-value**: 0.002
+
+This result indicates that the model performs slightly better on older recipes (pre-2010), and the observed difference in F1 scores is statistically significant at the 0.01 level. This suggests that there may be temporal bias in the model's performance.
+
+<iframe src="assets/fairness_analysis.html" width="100%" height="500px"></iframe>
+
+### Interpretation
+
+While the performance difference is relatively small in magnitude, its statistical significance prompts further investigation. One possible explanation could be changes in how recipes are written or tagged in more recent years, leading to a mismatch between newer formats and the model's learned patterns.
 
