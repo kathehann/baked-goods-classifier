@@ -55,12 +55,12 @@ We began by cleaning the raw `RAW_recipes.csv` and `RAW_interactions.csv` datase
 - There is a strong right skew indicating that high-sugar recipes are rare, with **most recipes having sugar content less than 50g**
 - There are a few outliers with extremely high-sugar levels, explaining the long tail
 
-<iframe src="assets/sugar_distribution.html" width="600" height="400" style="border:none;"></iframe>
+<iframe src="assets/sugar_distribution1.html" width="600" height="400" style="border:none;"></iframe>
 
 #### Calorie Content
 - **Most recipes fall between 200 and 600 calories**, suggesting that the majority of recipes in this dataset are moderate-calorie dishes.
   
-<iframe src="assets/calories_distribution.html" width="600" height="400" style="border:none;"></iframe>
+<iframe src="assets/calories_distribution1.html" width="600" height="400" style="border:none;"></iframe>
 
 ### Bivariate Analysis
 
@@ -68,13 +68,13 @@ We began by cleaning the raw `RAW_recipes.csv` and `RAW_interactions.csv` datase
 - Baked goods tend to have **higher sugar content on average** compared to non-baked goods, as expected.
 - However, the spread is tighter for baked goods, whereas non-baked goods show more variability and extreme outliers.
 
-<iframe src="assets/sugar_by_baked.html" width="600" height="400" style="border:none;"></iframe>
+<iframe src="assets/sugar_by_baked1.html" width="600" height="400" style="border:none;"></iframe>
 
 #### **`protein (g)` vs `is_baked_good`**
 - Baked goods generally have **lower protein content** than non-baked goods, with median protein levels visibly lower.
 - There is greater variability in protein among non-baked goods, likely due to the inclusion of protein-rich entrees.
 
-<iframe src="assets/protein_by_baked.html" width="600" height="400" style="border:none;"></iframe>
+<iframe src="assets/protein_by_baked1.html" width="600" height="400" style="border:none;"></iframe>
 
 
 Exploratory plots showed that:
@@ -107,7 +107,7 @@ The average sugar content of baked goods is greater than that of non-baked goods
 
 - **Test statistic:** Difference in means
 
-  <iframe src="assets/permutation_test_visual.html" width="100%" height="500px" style="border:none;"></iframe>
+  <iframe src="assets/permutation_test_visual1.html" width="100%" height="500px" style="border:none;"></iframe>
 
 - **Observed statistic:** 21.4139 grams
 - **p-value:** < 0.001
