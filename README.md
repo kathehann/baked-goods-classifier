@@ -51,7 +51,7 @@ We began by cleaning and preparing the raw `RAW_recipes.csv` and `RAW_interactio
 
 - **User Ratings Integration**: From `RAW_interactions.csv`, we calculated the average rating for each recipe using the `rating` values provided by users. We then merged these average ratings into the main recipe dataset using the shared `recipe_id`.
 
-- **Creating a Target Column (`is_baked_good`)**: We introduced a new binary column, `is_baked_good`, which flags whether a recipe is likely to be a baked good. This was determined by checking for the presence of specific baking-related keywords (e.g., 'bake', 'cookie', 'cake', 'bread') in the `tags` column.
+- **Creating a Target Column (`is_baked_good`)**: We introduced a new binary column, `is_baked_good`, which flags whether a recipe is likely to be a baked good. This was determined by checking for the presence of specific baking-related keywords (e.g., 'bake', 'cookie', 'cake', 'bread') in the `tags` and `name` columns.
 
 After cleaning, we performed exploratory data analysis (EDA) using univariate and bivariate visualizations. For instance:
 
@@ -118,8 +118,11 @@ The average sugar content of baked goods is less than or equal to that of non-ba
 The average sugar content of baked goods is greater than that of non-baked goods.
 
 - **Test statistic:** Difference in means
+  <iframe src="assets/difference_in_means_sugar.html" width="100%" height="500px" style="border:none;></iframe>
 
-  <iframe src="assets/permutation_test_visual1.html" width="100%" height="500px" style="border:none;"></iframe>
+
+
+  <iframe src="assets/permutation_test_visual.html" width="100%" height="500px" style="border:none;"></iframe>
 
 - **Observed statistic:** 21.4139 grams
 - **p-value:** < 0.001
@@ -175,8 +178,8 @@ While it classifies non-baked goods well, it performs poorly on baked goods due 
 ## Final Model
 
 We improved our model in several ways:
-- Added features: `n_steps`, `calories (#)`, `n_ingredients`, description word count
-- Engineered features: calories per ingredient
+- Added features: `n_steps`, `calories (#)`, `n_ingredients`, `description`
+- Engineered features: calories per ingredient, description word count
 - Used a Random Forest Classifier with class weighting
 - Performed 5-fold cross-validation with grid search tuning
 
