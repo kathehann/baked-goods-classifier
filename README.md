@@ -98,12 +98,54 @@ Exploratory plots showed that:
 
 ## Assessment of Missingness
 
-We assessed missing values across the dataset:
+We focused on the `description` column, which was missing for a subset of recipes. To evaluate whether the missingness in `description` is related to other observable variables, we performed **permutation tests** on the following:
 
-- `avg_rating` had missing values due to recipes without reviews — classified as Missing at Random (MAR) as lower rated foods were more likely to have missing descriptions
-- `nutrition`, `tags`, and `description` had sporadic missing values — handled with row drops or safe defaults
+- `n_steps` — the number of procedural steps in a recipe  
+- `n_ingredients` — the number of ingredients  
+- `avg_rating` — the average user rating  
 
-Since missingness was generally limited and non-informative, we chose not to impute values aggressively. Instead, we focused our modeling on the subset with full nutritional info.
+These tests compared the means of each variable between two groups:
+- Recipes **with** a description
+- Recipes **without** a description
+
+The null hypothesis for each test was that the missingness of the `description` is unrelated to the variable in question (i.e., missingness is random).
+
+---
+
+#### `n_steps`  
+- **Observed difference**: 0.7194  
+- **p-value**: 0.241  
+There is no significant difference in the number of steps between recipes with and without descriptions, suggesting that missingness in `description` is not strongly dependent on recipe complexity.
+
+<iframe src="assets/n_steps_description_missing.html" width="100%" height="500px"></iframe>
+
+---
+
+#### `n_ingredients`  
+- **Observed difference**: −1.1335  
+- **p-value**: 0.001  
+Recipes missing a description tend to have fewer ingredients. This relationship is statistically significant, indicating that simpler recipes are more likely to have missing descriptions.
+
+<iframe src="assets/n_ingredients_description_missing.html" width="100%" height="500px"></iframe>
+
+---
+
+#### `avg_rating`  
+- **Observed difference**: −0.1903  
+- **p-value**: 0.000  
+Recipes with missing descriptions receive lower ratings on average. This may reflect user behavior patterns—users may be less likely to leave comments or descriptions when their experience was neutral or negative. Since this involves unobserved user sentiment, this missingness could be **Not Missing At Random (NMAR)**.
+
+<iframe src="assets/avg_rating_description_missing.html" width="100%" height="500px"></iframe>
+
+---
+
+### Conclusion
+
+- The missingness in the `description` column **is not MCAR** (Missing Completely At Random).
+- The significant associations with `n_ingredients` and `avg_rating` suggest the missingness is **at least MAR** (Missing At Random).
+- Because user sentiment is likely unobserved and influences both ratings and the inclusion of descriptions, the data may also reflect **NMAR** (Not Missing At Random) behavior.
+
+Understanding the nature of missingness helps guide how we handle such data during modeling. For example, standard imputation may not be appropriate when data is NMAR, and more cautious strategies like sensitivity analysis should be considered.
 
 ---
 
@@ -119,7 +161,7 @@ The average sugar content of baked goods is greater than that of non-baked goods
 
 - **Test statistic:** Difference in means
 
-<iframe src="assets/difference_in_means_sugar.html" width="100%" height="500px"></iframe>
+<iframe src="assets/difference_in_means_sugar.html" width="100%" height="500px" style="border:none;"></iframe>
 
   <iframe src="assets/permutation_test_visual3.html" width="100%" height="500px" style="border:none;"></iframe>
 
@@ -181,6 +223,16 @@ We improved our model in several ways:
 - Engineered features: calories per ingredient, description word count
 - Used a Random Forest Classifier with class weighting
 - Performed 5-fold cross-validation with grid search tuning
+
+To improve our model beyond just using sugar and protein, we added features that reflect the structure and richness of a recipe. n_steps, calories, and n_ingredients capture how complex or dense a recipe is—baked goods often involve structured, multi-step processes and include many calorie-dense ingredients.
+
+We also engineered two features:
+
+- calories per ingredient, which measures how rich or dense a recipe is per component—baked goods often have a higher ratio due to ingredients like butter and sugar.
+
+- description word count, which captures how detailed the recipe description is—baked goods tend to have longer, more descriptive write-ups that highlight texture, flavor, and preparation.
+
+These features align with how baked goods are typically composed and described, making them valuable for improving prediction accuracy.
 
 **Best Parameters:**
 - `n_estimators`: 100  
