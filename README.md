@@ -224,6 +224,16 @@ We improved our model in several ways:
 - Used a Random Forest Classifier with class weighting
 - Performed 5-fold cross-validation with grid search tuning
 
+To improve our model beyond just using sugar and protein, we added features that reflect the structure and richness of a recipe. n_steps, calories, and n_ingredients capture how complex or dense a recipe is—baked goods often involve structured, multi-step processes and include many calorie-dense ingredients.
+
+We also engineered two features:
+
+    calories per ingredient, which measures how rich or dense a recipe is per component—baked goods often have a higher ratio due to ingredients like butter and sugar.
+
+    description word count, which captures how detailed the recipe description is—baked goods tend to have longer, more descriptive write-ups that highlight texture, flavor, and preparation.
+
+These features align with how baked goods are typically composed and described, making them valuable for improving prediction accuracy.
+
 **Best Parameters:**
 - `n_estimators`: 100  
 - `max_depth`: 10  
