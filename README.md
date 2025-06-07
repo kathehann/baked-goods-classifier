@@ -119,9 +119,9 @@ The average sugar content of baked goods is greater than that of non-baked goods
 
 - **Test statistic:** Difference in means
 
-<iframe src="assets/difference_in_means_sugar.html" width="100%" height="500px" style="border:none;></iframe>
-  
-  <iframe src="assets/permutation_test_visual.html" width="100%" height="500px" style="border:none;"></iframe>
+<iframe src="assets/difference_in_means_sugar.html" width="100%" height="500px"></iframe>
+
+  <iframe src="assets/permutation_test_visual3.html" width="100%" height="500px" style="border:none;"></iframe>
 
 - **Observed statistic:** 21.4139 grams
 - **p-value:** < 0.001
