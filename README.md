@@ -228,9 +228,9 @@ To improve our model beyond just using sugar and protein, we added features that
 
 We also engineered two features:
 
-    calories per ingredient, which measures how rich or dense a recipe is per component—baked goods often have a higher ratio due to ingredients like butter and sugar.
+- calories per ingredient, which measures how rich or dense a recipe is per component—baked goods often have a higher ratio due to ingredients like butter and sugar.
 
-    description word count, which captures how detailed the recipe description is—baked goods tend to have longer, more descriptive write-ups that highlight texture, flavor, and preparation.
+- description word count, which captures how detailed the recipe description is—baked goods tend to have longer, more descriptive write-ups that highlight texture, flavor, and preparation.
 
 These features align with how baked goods are typically composed and described, making them valuable for improving prediction accuracy.
 
