@@ -117,7 +117,7 @@ The null hypothesis for each test was that the missingness of the `description` 
 - **p-value**: 0.241  
 There is no significant difference in the number of steps between recipes with and without descriptions, suggesting that missingness in `description` is not strongly dependent on recipe complexity.
 
-<iframe src="assets/missingness_nsteps.html" width="100%" height="500px"></iframe>
+<iframe src="assets/n_steps_description_missing.html" width="100%" height="500px"></iframe>
 
 ---
 
@@ -126,7 +126,7 @@ There is no significant difference in the number of steps between recipes with a
 - **p-value**: 0.001  
 Recipes missing a description tend to have fewer ingredients. This relationship is statistically significant, indicating that simpler recipes are more likely to have missing descriptions.
 
-<iframe src="assets/missingness_ningredients.html" width="100%" height="500px"></iframe>
+<iframe src="assets/n_ingredients_description_missing.html" width="100%" height="500px"></iframe>
 
 ---
 
@@ -135,7 +135,7 @@ Recipes missing a description tend to have fewer ingredients. This relationship 
 - **p-value**: 0.000  
 Recipes with missing descriptions receive lower ratings on average. This may reflect user behavior patterns—users may be less likely to leave comments or descriptions when their experience was neutral or negative. Since this involves unobserved user sentiment, this missingness could be **Not Missing At Random (NMAR)**.
 
-<iframe src="assets/missingness_rating.html" width="100%" height="500px"></iframe>
+<iframe src="assets/avg_rating_description_missing.html" width="100%" height="500px"></iframe>
 
 ---
 
