@@ -51,7 +51,7 @@ We began by cleaning and preparing the raw `RAW_recipes.csv` and `RAW_interactio
 
 - **User Ratings Integration**: From `RAW_interactions.csv`, we calculated the average rating for each recipe using the `rating` values provided by users. We then merged these average ratings into the main recipe dataset using the shared `recipe_id`.
 
-- **Creating a Target Column (`is_baked_good`)**: We introduced a new binary column, `is_baked_good`, which flags whether a recipe is likely to be a baked good. This was determined by checking for the presence of specific baking-related keywords (e.g., 'bake', 'cookie', 'cake', 'bread') in the `tags` column.
+- **Creating a Target Column (`is_baked_good`)**: We introduced a new binary column, `is_baked_good`, which flags whether a recipe is likely to be a baked good. This was determined by checking for the presence of specific baking-related keywords (e.g., 'bake', 'cookie', 'cake', 'bread') in the `tags` and `name` columns.
 
 After cleaning, we performed exploratory data analysis (EDA) using univariate and bivariate visualizations. For instance:
 
