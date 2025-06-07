@@ -119,6 +119,18 @@ Exploratory plots showed that:
 
 ## Assessment of Missingness
 
+### NMAR Analysis
+
+We examined whether any of the missing data in the dataset is likely **Not Missing at Random (NMAR).**
+
+We believe the missingness in the rating column may be NMAR, since it's likely that the decision to leave a rating depends on the user's sentiment, which we do not observe. For example, users with neutral experiences may be less likely to leave ratings. Additionally, if the data scraping pulled both comments and formal ratings without a clear distinction, the missingness may reflect underlying behavior patterns not captured in the observed data. Therefore, the missingness depends on unobserved factors related to the rating itself.
+
+Because these underlying factors aren’t captured in the dataset, the missingness in rating is not related to other columns. Thus, we believe that description is likely NMAR where its missingness may be directly related to its own value, not other columns.
+
+---
+
+### Missingness Dependency: Permutation Tests
+
 We focused on the `description` column, which was missing for a subset of recipes. To evaluate whether the missingness in `description` is related to other observable variables, we performed **permutation tests** on the following:
 
 - `n_steps` — the number of procedural steps in a recipe  
@@ -154,7 +166,7 @@ Recipes missing a description tend to have fewer ingredients. This relationship 
 #### `avg_rating`  
 - **Observed difference**: −0.1903  
 - **p-value**: 0.000  
-Recipes with missing descriptions receive lower ratings on average. This may reflect user behavior patterns—users may be less likely to leave comments or descriptions when their experience was neutral or negative. Since this involves unobserved user sentiment, this missingness could be **Not Missing At Random (NMAR)**.
+Recipes with missing descriptions receive lower ratings on average. This may reflect user behavior patterns—users may be less likely to leave comments or descriptions when their experience was neutral or negative.
 
 <iframe src="assets/avg_rating_description_missing.html" width="100%" height="500px"style="border:none;"></iframe>
 
