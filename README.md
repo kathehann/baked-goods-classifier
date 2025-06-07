@@ -175,8 +175,8 @@ While it classifies non-baked goods well, it performs poorly on baked goods due 
 ## Final Model
 
 We improved our model in several ways:
-- Added features: `n_steps`, `calories (#)`, `n_ingredients`, description word count
-- Engineered features: calories per ingredient
+- Added features: `n_steps`, `calories (#)`, `n_ingredients`, `description`
+- Engineered features: calories per ingredient, description word count
 - Used a Random Forest Classifier with class weighting
 - Performed 5-fold cross-validation with grid search tuning
 
