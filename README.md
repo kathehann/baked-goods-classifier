@@ -53,6 +53,27 @@ We began by cleaning and preparing the raw `RAW_recipes.csv` and `RAW_interactio
 
 - **Creating a Target Column (`is_baked_good`)**: We introduced a new binary column, `is_baked_good`, which flags whether a recipe is likely to be a baked good. This was determined by checking for the presence of specific baking-related keywords (e.g., 'bake', 'cookie', 'cake', 'bread') in the `tags` and `name` columns.
 
+## Nutritional Value Filtering
+
+To ensure our dataset only includes realistic and representative recipes, we applied a series of filters to remove extreme nutritional values. This step was necessary to improve the quality of our analysis and model performance. Here's how and why we did it:
+
+**Why We Filtered Nutritional Columns**: Nutritional values like sugar, fat, or sodium can sometimes contain extreme outliers due to data entry errors, bulk recipes, or misreported units. These outliers distort summary statistics, reduce model reliability, and make visualizations harder to interpret.
+
+**Thresholds We Used**:
+  We limited each key nutrient to a maximum value that aligns with typical human consumption for a single recipe serving:
+
+  * `sugar (g) < 300`: Equivalent to \~75 teaspoons of sugar.
+  * `protein (g) < 100`: Higher than most meals but within reason.
+  * `saturated fat (g) < 100`: Exceeds daily recommended intake.
+  * `carbohydrates (g) < 300`: Represents \~1200 calories of carbs.
+  * `sodium (mg) < 4000`: Roughly double the recommended daily max.
+  * `calories (#) < 2000`: Reflects a full day’s intake in one dish.
+
+**Why These Limits Are Justified**:
+These thresholds were based on dietary guidelines (USDA) and an inspection of the data distributions. They helped us retain the vast majority of recipes while removing unrealistic entries that could harm our modeling or mislead interpretations.
+
+Overall, this filtering process allowed us to focus our analysis on standard recipes intended for individual or household consumption—improving the quality, clarity, and trustworthiness of all subsequent results.
+
 After cleaning, we performed exploratory data analysis (EDA) using univariate and bivariate visualizations. For instance:
 
 - We plotted the distribution of sugar, calories, and protein content across all recipes.
@@ -117,7 +138,7 @@ The null hypothesis for each test was that the missingness of the `description` 
 - **p-value**: 0.241  
 There is no significant difference in the number of steps between recipes with and without descriptions, suggesting that missingness in `description` is not strongly dependent on recipe complexity.
 
-<iframe src="assets/n_steps_description_missing.html" width="100%" height="500px"></iframe>
+<iframe src="assets/n_steps_description_missing.html" width="100%" height="500px" style="border:none;"></iframe>
 
 ---
 
@@ -126,7 +147,7 @@ There is no significant difference in the number of steps between recipes with a
 - **p-value**: 0.001  
 Recipes missing a description tend to have fewer ingredients. This relationship is statistically significant, indicating that simpler recipes are more likely to have missing descriptions.
 
-<iframe src="assets/n_ingredients_description_missing.html" width="100%" height="500px"></iframe>
+<iframe src="assets/n_ingredients_description_missing.html" width="100%" height="500px" style="border:none;"></iframe>
 
 ---
 
