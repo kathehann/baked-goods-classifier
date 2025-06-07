@@ -168,7 +168,7 @@ Recipes missing a description tend to have fewer ingredients. This relationship 
 - **p-value**: 0.000  
 Recipes with missing descriptions receive lower ratings on average. This may reflect user behavior patterns—users may be less likely to leave comments or descriptions when their experience was neutral or negative.
 
-<iframe src="assets/avg_rating_description_missing.html" width="100%" height="500px"style="border:none;"></iframe>
+<iframe src="assets/avg_rating_description_missing.html" width="100%" height="500px" style="border:none;"></iframe>
 
 ---
 
