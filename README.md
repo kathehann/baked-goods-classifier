@@ -322,5 +322,5 @@ This result indicates that the model performs slightly better on older recipes (
 
 ### Interpretation
 
-While the performance difference is relatively small in magnitude, its statistical significance prompts further investigation. One possible explanation could be changes in how recipes are written or tagged in more recent years, leading to a mismatch between newer formats and the model's learned patterns.
+While the performance difference is relatively small in magnitude, its statistical significance prompts further investigation. One possible explanation could be changes in how recipes are written or tagged in more recent years, leading to a mismatch between newer formats and the model's learned patterns. Another possible explanation could be that the majority of the data is from the first two years (2008 and 2009) and thus the model could be overtrained on the older data. This would make the model less effective for newer data.
 
